@@ -1,0 +1,14 @@
+<div class="input-group">
+  <label [for]="id">{{ label }}</label>
+  <input
+    [id]="id"
+    [name]="name"
+    [placeholder]="placeholder"
+    [(ngModel)]="ngModel"
+    [required]="required"
+    [pattern]="pattern"
+    [attr.maxlength]="maxlength">
+  <div class="error" *ngIf="ngModel?.invalid && (ngModel?.dirty || ngModel?.touched)">
+    {{ errorMessage }}
+  </div>
+</div>

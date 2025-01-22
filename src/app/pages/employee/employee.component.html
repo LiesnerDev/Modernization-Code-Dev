@@ -1,0 +1,58 @@
+<div class="employee-container">
+  <h2>Adicionar Funcionário</h2>
+  <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+    <app-custom-input
+      id="employeeId"
+      label="ID do Funcionário"
+      placeholder="Digite o ID (4 dígitos)"
+      [(ngModel)]="employeeId"
+      name="employeeId"
+      required
+      pattern="^\\d{4}$"
+      errorMessage="O ID do funcionário deve ter 4 dígitos">
+    </app-custom-input>
+
+    <app-custom-input
+      id="name"
+      label="Nome do Funcionário"
+      placeholder="Digite o nome"
+      [(ngModel)]="name"
+      name="name"
+      required
+      maxlength="20"
+      errorMessage="O nome do funcionário deve ter no máximo 20 caracteres">
+    </app-custom-input>
+
+    <app-custom-input
+      id="age"
+      label="Idade do Funcionário"
+      placeholder="Digite a idade (2 dígitos)"
+      [(ngModel)]="age"
+      name="age"
+      required
+      pattern="^\\d{2}$"
+      errorMessage="A idade do funcionário deve ter 2 dígitos">
+    </app-custom-input>
+
+    <app-custom-input
+      id="address"
+      label="Endereço do Funcionário"
+      placeholder="Digite o endereço"
+      [(ngModel)]="address"
+      name="address"
+      required
+      maxlength="30"
+      errorMessage="O endereço do funcionário deve ter no máximo 30 caracteres">
+    </app-custom-input>
+
+    <app-custom-button label="Enviar" type="submit"></app-custom-button>
+  </form>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>
